@@ -7,12 +7,14 @@ module lfsr # (
 )(
     input                           clk,
     //input                           enable,
-    output reg  [OUTPUT_WIDTH-1:0]  out 
+    output    [OUTPUT_WIDTH-1:0]  out 
 );
     wire feedback;
     reg [COUNT_WIDTH-1:0] counter;
+    reg [OUTPUT_WIDTH-1:0] shift_register;
 
-    assign feedback = ~(out[3] ^ out[2]);
+    assign feedback = ~(shift_register[3] ^ shift_register[2]);
+    assign out = shift_register;
     
     always @(posedge clk) begin
         //if (enable) begin
@@ -20,7 +22,7 @@ module lfsr # (
                 counter <= counter + 1;
             else begin
                 counter <= 0;
-                out <= {out[2:0], feedback};
+                shift_register <= {shift_register[2:0], feedback};
             end
         //end 
     end       

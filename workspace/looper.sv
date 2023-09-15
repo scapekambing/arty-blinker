@@ -7,13 +7,14 @@ module looper # (
 )(
     input                           clk,
     //input                           enable,
-    output reg  [OUTPUT_WIDTH-1:0]  out 
+    output     [OUTPUT_WIDTH-1:0]  out 
 );
 
     integer i;
     
     reg[OUTPUT_WIDTH-1:0] seed = 4'b0011;
     reg [COUNT_WIDTH-1:0] counter;
+    assign out = seed;
     
     always @(posedge clk) begin
         //if (enable) begin
@@ -25,7 +26,6 @@ module looper # (
                     seed[i+1] <= seed[i];
                 end
                 seed[0] <= seed[OUTPUT_WIDTH-1];
-                out <= seed;
             end
         //end 
     end       

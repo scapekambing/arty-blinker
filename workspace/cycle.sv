@@ -9,7 +9,7 @@ module cycle # (
     //input enable,
     
     // Outputs
-    output reg [OUTPUT_WIDTH-1:0] out
+    output     [OUTPUT_WIDTH-1:0] out
 );
 
     // Internal Signals
@@ -17,6 +17,8 @@ module cycle # (
     reg [2:0] cycle_index = 3'b000; // 3-bit cycle index
     reg direction = 0;
     reg [3:0] seq = 4'b0000;
+
+    assign out = seq;
 
     always @(posedge clk) begin
         //if (enable) begin
@@ -47,8 +49,6 @@ module cycle # (
                 end
                 else
                     cycle_index <= cycle_index + 1;     
-        
-                out <= seq;
             end
         //end
     end

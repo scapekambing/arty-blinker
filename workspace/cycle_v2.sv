@@ -9,7 +9,7 @@ module cycle_v2 # (
     //input enable,
     
     // Outputs
-    output reg [OUTPUT_WIDTH-1:0] out
+    output  [OUTPUT_WIDTH-1:0] out
 );
 
     // Internal Signals
@@ -17,6 +17,8 @@ module cycle_v2 # (
     reg [2:0] cycle_index = 2'b00; // 2-bit cycle index
     reg direction = 1;
     reg [3:0] seq = 4'b0000;
+    
+    assign out = seq;
 
     always @(posedge clk) begin
         //if (enable) begin
@@ -35,8 +37,6 @@ module cycle_v2 # (
                 end
                 else
                     cycle_index <= cycle_index + 1;     
-        
-                out <= seq;
             end
         //end
     end

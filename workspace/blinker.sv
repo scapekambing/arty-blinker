@@ -7,10 +7,12 @@ module blinker # (
 )(
     input                           clk,
     //input                           enable,
-    output reg  [OUTPUT_WIDTH-1:0]  out 
+    output    [OUTPUT_WIDTH-1:0]    out 
 );
     reg [COUNT_WIDTH-1:0] counter;
     reg [OUTPUT_WIDTH-1:0] seed;
+
+    assign out = seed;
     
     always @(posedge clk) begin
         //if (enable) begin
@@ -19,7 +21,6 @@ module blinker # (
             else begin
                 counter <= 0;
                 seed <= ~seed;
-                out <= seed;
             end
         //end 
     end       
