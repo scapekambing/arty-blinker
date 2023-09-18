@@ -1,0 +1,14 @@
+*
+!*/
+
+!simulations/*.py
+!simulations/*.sv
+!simulations/*.v
+!simulations/tbs/*sv
+!simulations/tbs/*v
+# !simulations/tbs/*.sv
+# !simulations/tbs/*.v
+
+!workspaces/
+!.gitignore
+

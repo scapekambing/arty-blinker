@@ -1,6 +1,28 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this file,
+// You can obtain one at http://mozilla.org/MPL/2.0/.
+//
+// Copyright (c) 2014-2023, Lars Asplund lars.anders.asplund@gmail.com
+
 // You do not need to worry about adding vunit_defines.svh to your
 // include path, VUnit will automatically do that for you if VUnit is
 // correctly installed (and your python run-script is correct).
+
+// TIPS
+// 1. print statement formating
+//    %h, %H	Display in hexadecimal format
+//    %d, %D	Display in decimal format
+//    %b, %B	Display in binary format
+//    %m, %M	Display hierarchical name
+//    %s, %S	Display as a string
+//    %t, %T	Display in time format
+//    %f, %F	Display 'real' in a decimal format
+//    %e, %E	Display 'real' in an exponential format
+// 2. test repetive function
+//    test automatic task_name();
+//       // code block here
+//    endtask;
+
 `include "vunit_defines.svh"
 
 module tb_example;
@@ -64,7 +86,7 @@ module tb_example;
       end
    end;
 
-   // The watchdog macro is optional, but recommended. If present, it
-   // must not be placed inside any initial or always-block.
-   `WATCHDOG(1ns);
+   // // The watchdog macro is optional, but recommended. If present, it
+   // // must not be placed inside any initial or always-block.
+   // `WATCHDOG(1ns);
 endmodule
